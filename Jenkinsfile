@@ -10,7 +10,7 @@ pipeline {
 
         stage('Build + Tests + Coverage') {
             steps {
-                sh 'mvn clean verify -B'
+                bat 'mvn clean verify -B'
             }
             post {
                 always {
@@ -23,7 +23,7 @@ pipeline {
 
         stage('Qualite statique') {
             steps {
-                sh 'mvn checkstyle:checkstyle pmd:pmd pmd:cpd spotbugs:spotbugs -B'
+                bat 'mvn checkstyle:checkstyle pmd:pmd pmd:cpd spotbugs:spotbugs -B'
             }
             post {
                 always {
